@@ -6,16 +6,16 @@ class Program
     {
         Console.WriteLine("Hello Prep3 World!");
 
-        int magic = 0;
+        int magic;
         int guess = 1;
         bool stopGuessing = false;
         string opt;
         int count = 0;
 
         Random randomGenerator = new Random();
-        magic = randomGenerator.Next(0, 100);
         while (stopGuessing == false)
         {
+            magic = randomGenerator.Next(0, 100);
             while (magic != guess) 
             {
                 Console.Write("What is your guess? ");
@@ -46,7 +46,6 @@ class Program
             }
             else
             {
-                magic = 0;
                 guess = 1;
                 count = 0;
             }
