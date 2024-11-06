@@ -44,6 +44,12 @@ class Program
             {
                 stopGuessing = true;
             }
+            else
+            {
+                magic = 0;
+                guess = 1;
+                count = 0;
+            }
         }
     }
 
