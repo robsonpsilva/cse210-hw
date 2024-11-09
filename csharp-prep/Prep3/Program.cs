@@ -7,7 +7,7 @@ class Program
         Console.WriteLine("Hello Prep3 World!");
 
         int magic;
-        int guess = 1;
+        int guess = -1;
         bool stopGuessing = false;
         string opt;
         int count = 0;
@@ -46,7 +46,7 @@ class Program
             }
             else
             {
-                guess = 1;
+                guess = -1;
                 count = 0;
             }
         }
