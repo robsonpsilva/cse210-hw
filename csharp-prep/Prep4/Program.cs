@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 class Program
 {
     static void Main(string[] args)
@@ -9,9 +10,11 @@ class Program
 
         bool continueEntering = true;
         float number;
-        float sum =0;
-        float average =0;
+        float sum = 0;
+        float average = 0;
         float max = 0;
+        float minPositive;
+        float sortedList;
 
         List<float> numbers = new List<float>();
 
@@ -40,5 +43,13 @@ class Program
         max = numbers.Max();
         Console.WriteLine($"The largest number is: {max}");
 
+        minPositive = numbers.Where(n => n > 0).Min();
+        Console.WriteLine($"The smallest positive number is: {minPositive}");
+        
+        numbers.Sort();
+        foreach (float n in numbers)
+        {
+            Console.WriteLine(n);
+        }
     }
 }
