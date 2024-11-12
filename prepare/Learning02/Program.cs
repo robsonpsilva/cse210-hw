@@ -4,7 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
+        Console.WriteLine("");
         Console.WriteLine("Hello Learning02 World!");
+        Console.WriteLine("");
 
         Job job = new Job();
         job._jobTitle = "Software Engineer";
@@ -19,8 +21,10 @@ class Program
         job1._endYear = 2023;
 
         Resume res = new Resume();
+        res._name = "Robson Silva";
         res._jobs.Add(job);
         res._jobs.Add(job1);
+        res.Display();
 
     }
 }
