@@ -36,7 +36,6 @@ public class UserEntry
 
             // Collecting user input, response.
             userChoice = Console.ReadLine();
-            nTry++;
 
             // Checking if user input is a number
             if(int.TryParse(userChoice, out int number) == true)
