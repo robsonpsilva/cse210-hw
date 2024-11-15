@@ -5,11 +5,13 @@ using System.Globalization;
 
 public class QuestionList
 {
+    // The responsibility of this class is to maintain and randomly make questions available to the user.
     public Dictionary<int,string> _questionRecords = new Dictionary<int, string>();
 
     // Creating a constructor class to initialize the object with a list of questions for the user.
     public QuestionList()
     {
+        // Initializing the list of questions with data, questions, that will be used in the program, later this load can be done from a file or database.
         this.setQuestion("What was the best part of my day?");
         this.setQuestion("What would you like to do?");
         this.setQuestion("WHow have you seen God's hand working in your life today?");
