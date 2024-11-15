@@ -1,5 +1,7 @@
 // This class is responsible for creating the interface and managing user interaction with that interface.
 
+using System.Net;
+
 public class UserEntry
 {
     List<string>  menu = new List<string>();
@@ -19,9 +21,8 @@ public class UserEntry
     {
         bool exitMenu = false;
         string userChoice;
-        int choice;
-
-        if (exitMenu == false)
+        int choice = 0;
+        while (exitMenu == false)
         {
                 
             // Setting up and displaying the start menu.
@@ -35,17 +36,29 @@ public class UserEntry
 
             // Collecting user input, response.
             userChoice = Console.ReadLine();
+            nTry++;
 
             // Checking if user input is a number
             if(int.TryParse(userChoice, out int number) == true)
             {
                 choice = int.Parse(userChoice);
-
+                if (choice >= 1 && choice <=5)
+                {
+                    exitMenu = true;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input, valid inputs are between 1 and 5.");
+                }
 
             }
+            else
+            {
+                Console.WriteLine("You have entered an invalid input, please enter one of the menu options.");
+            }          
             
-            return int.Parse();
         }
+        return choice;
     }
 
 
