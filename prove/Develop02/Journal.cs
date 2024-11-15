@@ -21,7 +21,7 @@ class Journal
             part = recordKeyData.Split("-");
             question = qlist.getQuestion(int.Parse(part[1]));
 
-            Console.WriteLine($"Date: {part[0]} - {input.Value} anos"); 
+            Console.WriteLine($"Date: {part[0]} - Prompt: {question}"); 
         
         
         }
