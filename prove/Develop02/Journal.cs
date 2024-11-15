@@ -22,7 +22,7 @@ class Journal
             question = qlist.getQuestion(int.Parse(part[1]));
 
             Console.WriteLine($"Date: {part[0]} - Prompt: {question}"); 
-        
+            Console.WriteLine($"{input.Value}");
         
         }
     }
@@ -30,4 +30,4 @@ class Journal
 
 }
 
-gASH0945 00
+// gASH0945 00
