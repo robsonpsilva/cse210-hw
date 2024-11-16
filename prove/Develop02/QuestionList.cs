@@ -7,6 +7,8 @@ public class QuestionList
 {
     // The responsibility of this class is to maintain and randomly make questions available to the user.
     public Dictionary<int,string> _questionRecords = new Dictionary<int, string>();
+    List<int> randomNumbers = new List<int>(); 
+    
 
     // Creating a constructor class to initialize the object with a list of questions for the user.
     public QuestionList()
@@ -55,13 +57,25 @@ public class QuestionList
         Random random = new Random();
         int min = 1;
         int max = _questionRecords.Count;
-        int n;
-
+        int n = -1;
+        int count = 1;
+        
         n = random.Next(min, max);
-
+        //The following code aims to avoid repetition of questions
+        while (randomNumbers.Contains(n) && count <=max)
+        {
+            n = random.Next(min, max);
+            count++;
+        }
+        if (count == (max+1)) //If the count variable is equal to the total number of questions, it means that all questions have been used, we are already repeating ourselves.
+        {
+            n=-1; //
+        }
+        else
+        {
+            randomNumbers.Add(n);
+        }
+        
         return (n, _questionRecords[n]);
-
     }
-
 }
-

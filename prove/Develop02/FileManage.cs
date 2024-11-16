@@ -4,7 +4,7 @@ using System.IO;
 class FileManage
 {
     
-    public bool saveJournalToFile(Journal entry, string  filePath)
+    public void saveJournalToFile(Journal entry, string  filePath)
     {
         // Dados para serem salvos no arquivo CSV
         string[] linhas = new string[]
@@ -38,7 +38,6 @@ class FileManage
         try{
             File.WriteAllLines(filePath, lines);
             Console.WriteLine("Data saved successfully in " + filePath);
-            return true; //Meaning success
         }
         catch (UnauthorizedAccessException e) 
         { 
@@ -52,7 +51,6 @@ class FileManage
         { 
             Console.WriteLine("An unexpected error occurred: " + e.Message); 
         }
-        return false;
-        
+       
     }
 }
