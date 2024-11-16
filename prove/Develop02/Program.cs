@@ -34,7 +34,7 @@ class Program
                 {
                     Console.WriteLine(q.Item2); // Choosing a random question for the user prompt.
                     userDiaryRegister = Console.ReadLine(); //Receiving user records for your journal
-                    j.setRecord($"{currentDate.ToString()} - {q.Item1}", userDiaryRegister); //Writing in the Journal
+                    j.setRecord($"{currentDate.ToString("d")} - {q.Item1}", userDiaryRegister); //Writing in the Journal   
                     Console.WriteLine("Operation completed successfully!");
                 }
                 else

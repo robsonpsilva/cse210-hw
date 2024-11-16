@@ -10,7 +10,7 @@ class Entry
     
     public void getRecordList(PromptGenerator qlist)
     {
-        //This method takes all the records from the Journal and displays 
+        //This method takes all the Entries(Records) from the Journal and displays 
         //them on the screen separated one by one by empty lines between them.
         string[] part;
         string recordKeyData;
@@ -40,7 +40,7 @@ class Entry
     
     public void setRecord(string key, string value)
     {
-        //The purpose of this setRecord method is to write a user log entry to the Journal.
+        //The purpose of this setRecord method is to write a user Entry to the Journal.
         _journalRecordList.Add(key,value);
     }
 
@@ -61,5 +61,3 @@ class Entry
 
 
 }
-
-// gASH0945 00
