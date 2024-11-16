@@ -28,12 +28,12 @@ class Program
                 Console.WriteLine(q.Item2); // Choosing a random question for the user prompt.
                 userDiaryRegister = Console.ReadLine(); //Receiving user records for your journal
                 j.setRecord($"{currentDate.ToString()} - {q.Item1}", userDiaryRegister);
-                j.getRecordList();
 
             }
             else if (option == 2)
             {
                 // Option equal to 2 means that the user wants to display his diary records on the screen.
+                j.getRecordList();
             }
             else if (option == 3)
             {
