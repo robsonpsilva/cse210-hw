@@ -26,6 +26,12 @@ class Journal
         
         }
     }
+    public void setRecord(string key, string value)
+    {
+        _journalRecordList.Add(key,value);
+    }
+
+
 
 
 }

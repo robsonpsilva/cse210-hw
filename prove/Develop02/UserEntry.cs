@@ -35,6 +35,7 @@ public class UserEntry
             Console.WriteLine("");
 
             // Collecting user input, response.
+            Console.Write("What would you like to do?");
             userChoice = Console.ReadLine();
 
             // Checking if user input is a number

@@ -50,7 +50,7 @@ public class QuestionList
 
     }
 
-    public string getRandomQuestion()
+    public (int,string) getRandomQuestion()
     {
         Random random = new Random();
         int min = 1;
@@ -58,7 +58,8 @@ public class QuestionList
         int n;
 
         n = random.Next(min, max);
-        return _questionRecords[n];
+
+        return (n, _questionRecords[n]);
 
     }
 
