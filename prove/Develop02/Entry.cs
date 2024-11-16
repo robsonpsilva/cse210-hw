@@ -1,15 +1,17 @@
 using System;
 using System.Collections.Generic;
 
-class Journal
+class Entry
 {
     //The journalRecordList variable is composed of a key that will have the format date-question 
     // and its value, which is the user's answer to the question.
     public Dictionary<string,string> _journalRecordList = new Dictionary<string, string>();
-    private QuestionList qlist = new QuestionList();
+   
     
-    public void getRecordList()
+    public void getRecordList(PromptGenerator qlist)
     {
+        //This method takes all the records from the Journal and displays 
+        //them on the screen separated one by one by empty lines between them.
         string[] part;
         string recordKeyData;
         string question;
@@ -21,24 +23,32 @@ class Journal
                 recordKeyData = input.Key; 
                 part = recordKeyData.Split("-");
                 question = qlist.getQuestion(int.Parse(part[1]));
-
+                //Prints the records found in the Journal
+                Console.WriteLine("");
                 Console.WriteLine($"Date: {part[0]} - Prompt: {question}"); 
                 Console.WriteLine($"{input.Value}");
-            
+                Console.WriteLine("");
             }
         }
         else
         {
-            Console.WriteLine("The diary is empty.");
+            Console.WriteLine("The Journal is empty.");
         }
         
     }
+    
+    
     public void setRecord(string key, string value)
     {
+        //The purpose of this setRecord method is to write a user log entry to the Journal.
         _journalRecordList.Add(key,value);
     }
 
     public void setAllRecords(string[] inp){
+        /*
+            The function of this method is to clear the internal storage of journal records 
+            and do a batch load from the values ​​it received as input.
+        */
         _journalRecordList.Clear();
         foreach(string i in inp)
         {

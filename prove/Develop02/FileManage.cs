@@ -4,10 +4,8 @@ using System.Net;
 
 class FileManage
 {
-    
-    public void saveJournalToFile(Journal entry, string  filePath)
-    {
-        
+    public void saveJournalToFile(Entry entry, string  filePath)
+    { 
         string recordKeyData;
         string userJournalRegister;
         string[] lines;
@@ -15,8 +13,7 @@ class FileManage
 
         foreach (KeyValuePair<string, string> input in entry._journalRecordList) 
         { 
-            //The keys will be formatted as follows: data-questionNumber. 
-            
+            //The keys will be formatted as follows: data-questionNumber.   
             //Each line in the file will have two parts, the registry key and then its value, separated by the character set "˜|~".
 
             recordKeyData = input.Key; //Getting the Registry Key
@@ -24,7 +21,8 @@ class FileManage
             lTemp.Add(recordKeyData + "˜|˜" + userJournalRegister);
         
         }
-         lines = lTemp.ToArray();
+        
+        lines = lTemp.ToArray();
 
         // Escrevendo os dados no arquivo CSV
         
