@@ -1,6 +1,13 @@
+/*
+    ************************** - Exceeding Requirements - ********************************
+    Exceeding the requirements, this class reads and writes to a json type file.
+    The parts where we exceed the requirements are identified as "Exceeding Requirements".
+    **************************************************************************************
+*/
 using System;
 using System.IO;
 using System.Net;
+using System.Text.Json;
 
 class FileManage
 {
@@ -9,6 +16,7 @@ class FileManage
         string recordKeyData;
         string userJournalRegister;
         string[] lines;
+
         List<string> lTemp = new List<string>();
 
         foreach (KeyValuePair<string, string> input in entry._journalRecordList) 
@@ -27,7 +35,9 @@ class FileManage
         // Escrevendo os dados no arquivo CSV
         
         try{
-            File.WriteAllLines(filePath, lines);
+            string jsonString = JsonSerializer.Serialize(lines); //Exceding requirements
+            File.WriteAllText(filePath, jsonString); //Exceding requirements
+
             Console.WriteLine("Data saved successfully in " + filePath);
         }
         catch (UnauthorizedAccessException e) 
@@ -49,8 +59,12 @@ class FileManage
     {
         bool status = false;
         string[] lines = {""};
+        //string[] line1 = {""};
+        string temp;
         try{
-            lines = File.ReadAllLines(filePath);
+            temp = File.ReadAllText(filePath);
+            lines = JsonSerializer.Deserialize<string[]>(temp); //Exceding requirements
+
             Console.WriteLine("Data loaded successfully in " + filePath);
             status = true;
         }

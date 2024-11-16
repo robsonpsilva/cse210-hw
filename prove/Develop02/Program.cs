@@ -1,3 +1,11 @@
+/*
+    **************************************** - Exceeding Requirements - **************************************************************
+    Meeting the requirement "Save or load your document to a database or use a different library or format such as JSON for storage."
+    Exceeding requirements - The system is saving and reading from a json file.
+    See the FileManage class to verify writing and reading of user Journal records to and from a json file.
+    The parts where we exceed the requirements are identified as "Exceeding Requirements".
+    **********************************************************************************************************************************
+*/
 using System;
 
 class Program
@@ -52,8 +60,12 @@ class Program
             else if (option == 3)
             {
                 // Option 3 means that the user wants to load his diary data from a file.
-                //Reading in the diary.csv file
-                var r = f.loadFromFile("diary.csv");
+                
+                Console.Write("Please enter a file name that has a json extension, for example diary.json. ");
+                string filePath = Console.ReadLine();
+
+                //Reading from a file
+                var r = f.loadFromFile(filePath);
                 if (r.Item1)
                 {
                     //Upon entering this section the system was able to read the file successfully.
@@ -68,8 +80,11 @@ class Program
             else if (option == 4)
             {
                 // Option 4 means that the user wants to save his diary data to a file.
-                //Writing in the diary.csv file
-                f.saveJournalToFile(j,"diary.csv");
+                Console.Write("Please enter a file name that has a json extension, for example diary.json. ");
+                string filePath = Console.ReadLine();
+
+                //Writing to a file
+                f.saveJournalToFile(j,filePath);
             }
             else if (option == 5)
             {
