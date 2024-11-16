@@ -9,6 +9,7 @@ class Program
         UserEntry uDisplay = new UserEntry();
         QuestionList quest = new QuestionList();
         Journal j = new Journal();
+        FileManage f = new FileManage();
 
         string userDiaryRegister;
         bool runFlag = true;
@@ -42,6 +43,7 @@ class Program
             else if (option == 4)
             {
                 // Option 4 means that the user wants to save his diary data to a file.
+                f.saveJournalToFile(j,"diary.csv");
             }
             else if (option == 5)
             {
