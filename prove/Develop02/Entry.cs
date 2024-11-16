@@ -5,6 +5,7 @@ class Entry
 {
     //The journalRecordList variable is composed of a key that will have the format date-question 
     // and its value, which is the user's answer to the question.
+    
     public Dictionary<string,string> _journalRecordList = new Dictionary<string, string>();
    
     
