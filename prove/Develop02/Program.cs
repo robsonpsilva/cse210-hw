@@ -31,6 +31,7 @@ class Program
                     Console.WriteLine(q.Item2); // Choosing a random question for the user prompt.
                     userDiaryRegister = Console.ReadLine(); //Receiving user records for your journal
                     j.setRecord($"{currentDate.ToString()} - {q.Item1}", userDiaryRegister);
+                    Console.WriteLine("Operation completed successfully!");
                 }
                 else
                 {
@@ -47,6 +48,16 @@ class Program
             else if (option == 3)
             {
                 // Option 3 means that the user wants to load his diary data from a file.
+                var r = f.loadFromFile("diary.csv");
+                if (r.Item1)
+                {
+                    //Upon entering this section the system was able to read the file successfully.
+
+                    j.setAllRecords(r.Item2);
+                    quest.setRandomNumbers(r.Item2);
+
+                }
+                
             }
             else if (option == 4)
             {
@@ -57,12 +68,12 @@ class Program
             {
                 // Option 5 means the user wants to exit the program.
                 runFlag = false;
-                Console.WriteLine("Closing the program, press any key to finish.");
-                Console.ReadLine();
             }
         
-        
+            Console.Write("Press any key to continue. ");
+            Console.ReadLine();
         }
-        
+        Console.WriteLine("Closing the program, press any key to finish.");
     }
+    
 }

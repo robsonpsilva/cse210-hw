@@ -60,22 +60,34 @@ public class QuestionList
         int n = -1;
         int count = 1;
         
-        n = random.Next(min, max);
+        n = random.Next(min, max+1);
         //The following code aims to avoid repetition of questions
-        while (randomNumbers.Contains(n) && count <=max)
+        while (randomNumbers.Contains(n) && count <= (2*max))
         {
             n = random.Next(min, max);
             count++;
         }
-        if (count == (max+1)) //If the count variable is equal to the total number of questions, it means that all questions have been used, we are already repeating ourselves.
+        if (count >= (2*max)) //If the count variable is equal to the total number of questions, it means that all questions have been used, we are already repeating ourselves.
         {
-            n=-1; //
+            n=-1; 
+            return (n, "");
         }
         else
         {
             randomNumbers.Add(n);
+            return (n, _questionRecords[n]);
         }
         
-        return (n, _questionRecords[n]);
+    }
+
+    public void setRandomNumbers(string[] inp)
+    {
+        foreach (string i in inp)
+        {
+            string[] temp = i.Split("˜|˜");
+            string[] temp2 = temp[0].Split("-");
+            randomNumbers.Add(int.Parse(temp2[1]));
+        }
+
     }
 }

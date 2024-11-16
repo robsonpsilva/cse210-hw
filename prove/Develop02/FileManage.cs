@@ -1,20 +1,13 @@
 using System;
 using System.IO;
+using System.Net;
 
 class FileManage
 {
     
     public void saveJournalToFile(Journal entry, string  filePath)
     {
-        // Dados para serem salvos no arquivo CSV
-        string[] linhas = new string[]
-        {
-            "Nome,Idade,Cidade",
-            "Alice,30,São Paulo",
-            "Bob,25,Rio de Janeiro",
-            "Charlie,35,Belo Horizonte"
-        };
-
+        
         string recordKeyData;
         string userJournalRegister;
         string[] lines;
@@ -52,5 +45,30 @@ class FileManage
             Console.WriteLine("An unexpected error occurred: " + e.Message); 
         }
        
+    }
+
+    public (bool,string[]) loadFromFile(string  filePath)
+    {
+        bool status = false;
+        string[] lines = {""};
+        try{
+            lines = File.ReadAllLines(filePath);
+            Console.WriteLine("Data loaded successfully in " + filePath);
+            status = true;
+        }
+        catch (UnauthorizedAccessException e) 
+        { 
+            Console.WriteLine("Error: Access denied. " + e.Message); 
+        } 
+        catch (IOException e) 
+        {   
+            Console.WriteLine("I/O Error: " + e.Message); 
+        } 
+        catch (Exception e) 
+        { 
+            Console.WriteLine("An unexpected error occurred: " + e.Message); 
+        }
+        return (status, lines);
+
     }
 }

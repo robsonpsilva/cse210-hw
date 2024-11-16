@@ -26,17 +26,19 @@ public class UserEntry
         {
                 
             // Setting up and displaying the start menu.
-            Console.WriteLine("Please select one of the following choices, typing the corresponding number.:");
+            Console.Clear();
+            Console.WriteLine("Please select one of the following choices, typing the corresponding number:");
             Console.WriteLine("");
             foreach (string m in menu)
             {
-                Console.WriteLine($"{m}");
+                Console.WriteLine($"{m}. ");
             }
             Console.WriteLine("");
 
             // Collecting user input, response.
-            Console.Write("What would you like to do?");
+            Console.Write("What would you like to do? ");
             userChoice = Console.ReadLine();
+            Console.Clear();
 
             // Checking if user input is a number
             if(int.TryParse(userChoice, out int number) == true)
@@ -49,12 +51,14 @@ public class UserEntry
                 else
                 {
                     Console.WriteLine("Invalid input, valid inputs are between 1 and 5.");
+                    Console.Clear();
                 }
 
             }
             else
             {
                 Console.WriteLine("You have entered an invalid input, please enter one of the menu options.");
+                Console.Clear();
             }          
             
         }
