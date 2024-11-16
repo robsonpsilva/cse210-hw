@@ -8,7 +8,7 @@ class Entry
     public Dictionary<string,string> _journalRecordList = new Dictionary<string, string>();
    
     
-    public void getRecordList(PromptGenerator qlist)
+    public void display(PromptGenerator qlist)
     {
         //This method takes all the Entries(Records) from the Journal and displays 
         //them on the screen separated one by one by empty lines between them.

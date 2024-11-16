@@ -55,7 +55,7 @@ class Program
             else if (option == 2)
             {
                 // Option equal to 2 means that the user wants to display his diary records on the screen.
-                j.getRecordList(qlist);
+                j.display(qlist);
             }
             else if (option == 3)
             {
