@@ -1,6 +1,6 @@
 
 
-public class World
+public class Word
 {
     bool displayStatus = true;
     string word;
