@@ -1,9 +1,14 @@
 
 
-public class Word
+class Word
 {
     bool displayStatus = true;
     string word;
+
+    public Word(string word)
+    {
+        this.word = word;
+    }
 
     public void hideWord()
     {

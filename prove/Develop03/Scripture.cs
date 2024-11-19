@@ -1,7 +1,7 @@
 
 class Scripture
 {
-    Reference reference = new Reference();
+    // Reference reference = new Reference()
 
     public void hideWords()
     {
