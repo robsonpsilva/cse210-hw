@@ -91,8 +91,9 @@ class Reference
     public void hideWord()
     {   
         int[] verseTrack = new int[endVerse-startVerse];
+        bool flag = false;
         
-        while (verseTrack.Length < (endVerse-startVerse))
+        while (verseTrack.Length <= (endVerse-startVerse) && flag ==  false)
         {
             int verse = random.Next(startVerse, endVerse);
             bool exist = Array.Exists(verseTrack, element => element == verse);
