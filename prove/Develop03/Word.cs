@@ -31,7 +31,16 @@ class Word
     }
 
     public string getWord()
-    {
-        return this.word;
+    {  
+       string aux = this.word; 
+       if(displayStatus == false) //Checking whether to hide the word
+       {    
+        aux="";
+            for(int i=0; i<word.Length; i++) //Replacing each character with an underline.
+            {
+                aux += "_";
+            }
+       }
+       return aux;
     }
 }
