@@ -19,12 +19,14 @@ class Reference
     Random _random = new Random();
     Random _random1 = new Random();
 
-    public Reference(string book, int chapter)
+    public Reference(string book, int chapter, int start)
     {
         //This constructor initializes the class with the book and chapter of the referenced scripture.
 
         this._book = book;
         this._chapter = chapter;
+        this._startVerse = start;
+        this._endVerse = start;
     }
     
     public Reference(string book, int chapter, int start, int end)
