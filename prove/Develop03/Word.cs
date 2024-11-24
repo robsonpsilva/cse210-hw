@@ -2,41 +2,41 @@
 
 class Word
 {
-    bool displayStatus = true;
-    string word;
+    bool _displayStatus = true;
+    string _word;
 
     public Word(string word)
     {
-        this.word = word;
+        this._word = word;
     }
 
     public void hideWord()
     {
-        displayStatus = false;
+        _displayStatus = false;
     }
     
     public void showWord()
     {
-        displayStatus = true;
+        _displayStatus = true;
     }
 
     public bool isHidden()
     {
-        return  !displayStatus;
+        return  !_displayStatus;
     }
 
     public void setWord(string word)
     {
-        this.word = word;
+        this._word = word;
     }
 
     public string getWord()
     {  
-       string aux = this.word; 
-       if(displayStatus == false) //Checking whether to hide the word
+       string aux = this._word; 
+       if(_displayStatus == false) //Checking whether to hide the word
        {    
         aux="";
-            for(int i=0; i<word.Length; i++) //Replacing each character with an underline.
+            for(int i=0; i<_word.Length; i++) //Replacing each character with an underline.
             {
                 aux += "_";
             }
