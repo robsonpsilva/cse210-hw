@@ -1,12 +1,12 @@
 using System;
 using System.Security.Cryptography;
 /*
-        Exceeding Requirements - The program works with a library of eight scriptures, 
+        Exceeding Requirements - Scripture Library - The program works with a library of eight scriptures, 
         which can be selected by the user through the menu.
         The library is loaded into memory in the Scripture class constructor.
         Please look in the Scripture class constructor to see where the library is loaded.
 
-        Exceeding Requirements - The system allows random loading of scriptures
+        Exceeding Requirements - Randomly selected scriptures - The system allows random loading of scriptures.
         When you press 8 in the menu, the system will load the scripture randomly.
 
 */
