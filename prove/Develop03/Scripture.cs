@@ -1,8 +1,8 @@
 
 class Scripture
 {
-    List<Reference> _reference = new List<Reference>();
-    int _referenceNumber = 0;
+    private List<Reference> _reference = new List<Reference>();
+    private int _referenceNumber = 0;
 
     public Scripture()
     {

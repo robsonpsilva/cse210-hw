@@ -4,7 +4,7 @@ using System.Net;
 
 public class UserEntry
 {
-    List<string> _menu = new List<string>();
+    private List<string> _menu = new List<string>();
     public UserEntry()
     {
         // The function of this constructor method is to initialize the interface, 

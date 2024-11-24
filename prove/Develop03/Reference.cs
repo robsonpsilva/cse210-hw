@@ -1,23 +1,23 @@
 using System;
 class Reference
 {
-    string _book; //This attribute stores the scripture reference book, for example Matthew and I Nephi.
-    int _chapter; //Scriptures references include not only the book but also the chapter in which they are found. 
+    private string _book; //This attribute stores the scripture reference book, for example Matthew and I Nephi.
+    private int _chapter; //Scriptures references include not only the book but also the chapter in which they are found. 
                   //This attribute stores this information.
 
-    int _startVerse; //Store the starting verse number.
-    int _endVerse; //Store the ending verse number.
+    private int _startVerse; //Store the starting verse number.
+    private int _endVerse; //Store the ending verse number.
 
-    bool _fullHidden = false; //Signals whether the reference has been fully read.
+    private bool _fullHidden = false; //Signals whether the reference has been fully read.
 
     /*
         The following variable stores these verses.
         References are composed of one or more verses. 
         A verse is, in fact, a set of words.
     */
-    Dictionary<int,List<Word>> _verses = new Dictionary<int, List<Word>>();
-    Random _random = new Random();
-    Random _random1 = new Random();
+    private Dictionary<int,List<Word>> _verses = new Dictionary<int, List<Word>>();
+    private Random _random = new Random();
+    private Random _random1 = new Random();
 
     public Reference(string book, int chapter, int start)
     {

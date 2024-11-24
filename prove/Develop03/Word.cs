@@ -2,8 +2,8 @@
 
 class Word
 {
-    bool _displayStatus = true;
-    string _word;
+    private  bool _displayStatus = true;
+    private string _word;
 
     public Word(string word)
     {
