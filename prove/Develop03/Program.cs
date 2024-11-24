@@ -14,19 +14,22 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop03 World!");
-        Random random = new Random();
+        
+        Random _random = new Random();
         //Loads the menu with eight scripture options to be memorized.
-        UserEntry uDisplay = new UserEntry();
-        int choice = uDisplay.screenMenu();
-        if (choice == 8)
+        UserEntry _uDisplay = new UserEntry();
+        int _choice = _uDisplay.screenMenu();
+        Scripture _scripture = new Scripture();
+        string _prompt = "";
+
+        Console.WriteLine("Hello Develop03 World!");
+
+        if (_choice == 8)
         {
             //Exceeding Requirements 
             //Allows you to choose scriptures randomly.
-            choice = random.Next(0, 8);
+            _choice = _random.Next(0, 8);
         }
-        Scripture scripture = new Scripture();
-        Reference r = scripture.getScreenScripture(choice);
 
         Console.Clear(); //Cleaning up the console to provide a less visually cluttered prompt.
         Console.WriteLine("Attention! Please read the following instructions carefully.");
@@ -35,23 +38,23 @@ class Program
         Console.WriteLine("At any time, if you wish to exit, type the word quit and press the Enter key.");
         Console.Write("Press any key to continue: ");
         Console.ReadLine();
-
-        string prompt = "";
-        while (prompt != "quit")
+        
+        while (_prompt != "quit")
         {
             Console.Clear(); //Cleaning up the console to provide a less visually cluttered prompt.
-            Console.WriteLine(r.getHiddenReferenceString()); //Displaying the text of the scripture reference.
+            Console.WriteLine(_scripture.getScreenScripture(_choice)
+            .getHiddenReferenceString()); //Displaying the text of the scripture reference.
             Console.WriteLine("");
             
             Console.Write(">");
-            prompt = Console.ReadLine();
+            _prompt = Console.ReadLine();
             
-            r.hideWord();
+            _scripture.hideRandomWords(); // This function will hide a word in the scripture.
             
-            if (r.isFullHidden())
+            if (_scripture.isHidden())
             {
                 Console.WriteLine("Program exit.");
-                prompt = "quit";
+                _prompt = "quit";
             }
         }
     

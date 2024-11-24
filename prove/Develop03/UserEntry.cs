@@ -4,20 +4,20 @@ using System.Net;
 
 public class UserEntry
 {
-    List<string>  menu = new List<string>();
+    List<string> _menu = new List<string>();
     public UserEntry()
     {
         // The function of this constructor method is to initialize the interface, 
         // which at the moment just means listing the questions.
-        menu.Add("Type 0 for Psalm 103:2-3");
-        menu.Add("Type 1 for Deuteronomy 32:39");
-        menu.Add("Type 2 for 1 Nephi 3:7");
-        menu.Add("Type 3 for 2 Nephi 2:25");
-        menu.Add("Type 4 for 2 Nephi 32:3");
-        menu.Add("Type 5 for Doctrine and Covenants 82:10");
-        menu.Add("Type 6 for Doctrine and Covenants 88:118");
-        menu.Add("Type 7 for Helaman 5:12");
-        menu.Add("Type 8 for the program to choose a scripture at random.");
+        _menu.Add("Type 0 for Psalm 103:2-3");
+        _menu.Add("Type 1 for Deuteronomy 32:39");
+        _menu.Add("Type 2 for 1 Nephi 3:7");
+        _menu.Add("Type 3 for 2 Nephi 2:25");
+        _menu.Add("Type 4 for 2 Nephi 32:3");
+        _menu.Add("Type 5 for Doctrine and Covenants 82:10");
+        _menu.Add("Type 6 for Doctrine and Covenants 88:118");
+        _menu.Add("Type 7 for Helaman 5:12");
+        _menu.Add("Type 8 for the program to choose a scripture at random.");
     }
 
     public int screenMenu()
@@ -32,7 +32,7 @@ public class UserEntry
             Console.Clear();
             Console.WriteLine("Select the scripture you wish to memorize by typing the corresponding number in the following menu.");
             Console.WriteLine("");
-            foreach (string m in menu)
+            foreach (string m in _menu)
             {
                 Console.WriteLine($"{m}. ");
             }
