@@ -60,7 +60,7 @@ class Scripture
         _reference[_referenceNumber].hideWord();
     }
 
-    public bool isHidden()
+    public bool isCompletelyHidden()
     {
         return _reference[_referenceNumber].isFullHidden();
     }

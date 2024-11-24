@@ -51,7 +51,7 @@ class Program
             
             _scripture.hideRandomWords(); // This function will hide a word in the scripture.
             
-            if (_scripture.isHidden())
+            if (_scripture.isCompletelyHidden())
             {
                 Console.WriteLine("Program exit.");
                 _prompt = "quit";
