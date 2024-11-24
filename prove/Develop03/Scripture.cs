@@ -5,7 +5,7 @@ class Scripture
 
     public Scripture()
     {
-        
+        //Exceeding Requirements 
         //Loading the first reference scripture.
         Reference r = new Reference("Psalm", 103, 2, 3);
         r.setVerse(2,"Praise the Lord, my soul, and forget not all his benefits.");
@@ -48,21 +48,9 @@ class Scripture
         reference.Add(r7);
     }
 
-
-    public void hideWords()
-    {
-
-    }
-
     public Reference getScreenScripture(int referenceNumber)
     {
         return reference[referenceNumber];
-    }
-
-    public bool isFullHide()
-    {
-
-        return false;
     }
 }
 

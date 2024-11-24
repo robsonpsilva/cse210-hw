@@ -16,7 +16,8 @@ public class UserEntry
         menu.Add("Type 4 for 2 Nephi 32:3");
         menu.Add("Type 5 for Doctrine and Covenants 82:10");
         menu.Add("Type 6 for Doctrine and Covenants 88:118");
-        menu.Add("Type 7 Helaman 5:12");
+        menu.Add("Type 7 for Helaman 5:12");
+        menu.Add("Type 8 for the program to choose a scripture at random.");
     }
 
     public int screenMenu()
@@ -44,7 +45,7 @@ public class UserEntry
             if(int.TryParse(userChoice, out int number) == true)
             {
                 choice = int.Parse(userChoice);
-                if (choice >= 0 && choice <=7)
+                if (choice >= 0 && choice <=8)
                 {
                     exitMenu = true;
                 }
