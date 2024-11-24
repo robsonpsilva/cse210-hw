@@ -18,6 +18,7 @@ class Reference
     Random random = new Random();
     Random random1 = new Random();
 
+    
     public Reference(string book, int chapter)
     {
         this.book = book;
@@ -90,30 +91,32 @@ class Reference
 
     public void hideWord()
     {   
-        int[] verseTrack = new int[endVerse-startVerse];
+        List<int> verseTrack = new List<int>();
         bool flag = false;
         
-        while (verseTrack.Length <= (endVerse-startVerse) && flag ==  false)
+        while (verseTrack.Count() <= ((endVerse-startVerse)+1) && flag ==  false)
         {
-            int verse = random.Next(startVerse, endVerse);
-            bool exist = Array.Exists(verseTrack, element => element == verse);
+            int verse = random.Next(startVerse, endVerse+1);
+            bool exist = verseTrack.Contains(verse);
             int wordNumber = 0;
 
             if (exist != true)
             {
-                verseTrack.Append(verse);
+                verseTrack.Add(verse);
                 List<Word> w = verses[verse];
-                wordNumber = random1.Next(0,w.Count()-1);
+                wordNumber = random1.Next(0,w.Count());
                 int count = 0;
                 while (w[wordNumber].isHidden() == true && count <500)
                 {
-                    wordNumber = random1.Next(0,w.Count()-1);
+                    wordNumber = random1.Next(0,w.Count());
+                    count++;
                 }
                 if(count == 500)
                 {
-                    if (verseTrack.Length == (endVerse-startVerse))//It means that all verses have been scanned and there are no more unhidden words in them.
+                    if (verseTrack.Count() == ((endVerse-startVerse)+1))//It means that all verses have been scanned and there are no more unhidden words in them.
                     {
                         fullHidden = true;
+                        flag = true;
                     }
                     else
                     {
@@ -123,6 +126,7 @@ class Reference
                 else
                 {
                     w[wordNumber].hideWord();
+                    flag = true;
                 }
 
             } 

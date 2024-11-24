@@ -22,7 +22,7 @@ class Word
 
     public bool isHidden()
     {
-        return displayStatus;
+        return  !displayStatus;
     }
 
     public void setWord(string word)
