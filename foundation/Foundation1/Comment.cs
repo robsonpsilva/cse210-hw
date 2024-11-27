@@ -4,9 +4,9 @@ class Comment
     private string _personName;
     private string _commentText;
 
-    public Comment (string personName, string comment)
+    public Comment (string personName, string commentText)
     {
-        this._commentText = comment;
+        this._commentText = commentText;
         this._personName = personName;
     }
 
@@ -19,9 +19,9 @@ class Comment
         return this._personName;
     }
 
-    public void setComment(string comment)
+    public void setComment(string commentText)
     {
-        this._commentText = comment;
+        this._commentText = commentText;
     }
 
     public void setPersonName(string personName)
