@@ -2,17 +2,17 @@
 class Comment
 {
     private string _personName;
-    private string _comment;
+    private string _commentText;
 
     public Comment (string personName, string comment)
     {
-        this._comment = comment;
+        this._commentText = comment;
         this._personName = personName;
     }
 
     public string getComment()
     {
-        return this._comment;
+        return this._commentText;
     }
     public string getPersonName()
     {
@@ -21,7 +21,7 @@ class Comment
 
     public void setComment(string comment)
     {
-        this._comment = comment;
+        this._commentText = comment;
     }
 
     public void setPersonName(string personName)
