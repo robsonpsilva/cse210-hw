@@ -3,11 +3,11 @@ class Product
 {
     private int _productId;
     private string _productName;
-    private float _productPrice;
+    private double _productPrice;
 
-    private float _productQuantity;
+    private double _productQuantity;
 
-    public Product(int productId, string productName, float productPrice, float productQuantity)
+    public Product(int productId, string productName, double productPrice, double productQuantity)
     {
         this._productId = productId;
         this._productName = productName;
@@ -15,7 +15,7 @@ class Product
         this._productQuantity = productQuantity;
     }
 
-    public float getTotalCost()
+    public double getTotalCost()
     {
        return this._productPrice * this._productQuantity; 
     }
@@ -30,12 +30,12 @@ class Product
         return this._productName;
     }
 
-    public float getProductPrice()
+    public double getProductPrice()
     {
         return this._productPrice;
     }
 
-    public float getProductQuantity()
+    public double getProductQuantity()
     {
         return this._productQuantity;
     }
@@ -50,12 +50,12 @@ class Product
         this._productName = productName;
     }
 
-    public void setProductPrice(float productPrice)
+    public void setProductPrice(double productPrice)
     {
         this._productPrice = productPrice;
     }
 
-    public void setProductQuantity(float productQuantity)
+    public void setProductQuantity(double productQuantity)
     {
         this._productQuantity = productQuantity;
     }

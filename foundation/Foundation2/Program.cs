@@ -11,8 +11,11 @@ class Program
         
         Customer customer = new Customer("Robson Paulo da Silva", address);
 
+        Product product = new Product(1, "Logitech Mouse", 5.60 , 2);
+
         Console.Clear();
         Console.WriteLine(customer.getCustomerName());
         Console.WriteLine(customer.getCustomerAddress().getFullAddress());
+        Console.WriteLine(product.getTotalCost());
     }
 }
