@@ -1,4 +1,5 @@
 using System;
+using System.Security.AccessControl;
 
 class Program
 {
@@ -51,12 +52,14 @@ class Program
         //Putting the video in the list
         videos.Add(v3);
 
+        Console.Clear();
+        
         foreach (Video v in videos)
         {
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine($"Title: {v.getTitle()} - Author: {v.getAuthor()} - Lenght: {v.getLenght()} - Number of Comments: {v.getNumberOfComments()}");
             Console.WriteLine("");
-            
+
             List<Comment> c = v.GetComments();
             
             foreach(Comment comment1 in c)
