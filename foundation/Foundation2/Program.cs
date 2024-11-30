@@ -14,10 +14,10 @@ class Program
         Customer customer = new Customer("Robson Paulo da Silva", address);
 
         //Once the customer for the order has been defined, the next step is to create a purchase order.
-        Order order = new Order(customer);
+        Order order = new Order(customer, new Product(1, "Logitech Mouse", 5.60 , 2));
 
         //Then the products chosen by the customer need to be included in their purchase order.
-        order.setProduct(new Product(1, "Logitech Mouse", 5.60 , 2));
+        //order.setProduct(new Product(1, "Logitech Mouse", 5.60 , 2));
         order.setProduct(new Product(2, "Keyboard Dell", 10.0 , 1));
         order.setProduct(new Product(3, "Laptop Samsung", 500.0 , 1));
         order.setProduct(new Product(4, "Mouse Pad RedDragon", 2.0 , 1));

@@ -4,6 +4,11 @@ class Order
     private Customer _customer;
     private List<Product> _products = new List<Product>();
 
+    public Order(Customer customer, Product product)
+    {
+        this._customer = customer;
+        this._products.Add(product);
+    }
     public Order(Customer customer)
     {
         this._customer = customer;
