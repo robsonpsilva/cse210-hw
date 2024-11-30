@@ -52,9 +52,9 @@ class Program
         customer = new Customer("John Smith", address);
 
         //Once the customer for the order has been defined, the next step is to create a purchase order.
-        order = new Order(customer);
+        order = new Order(customer, new Product(1, "Set of frying pans", 42.99 , 1));
 
-        order.setProduct(new Product(1, "Set of frying pans", 42.99 , 1));
+        //order.setProduct(new Product(1, "Set of frying pans", 42.99 , 1));
         order.setProduct(new Product(2, "Libbey Ascent 16-Piece Tumbler and Rocks Glass Set", 10.0 , 2));
         order.setProduct(new Product(3, "Riveira Bamboo Wooden Spoons for Cooking 6-Piece", 500.0 , 1));
 
