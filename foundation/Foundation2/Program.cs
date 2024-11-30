@@ -17,9 +17,9 @@ class Program
         Order order = new Order(customer, new Product(1, "Logitech Mouse", 5.60 , 2));
 
         //Then the products chosen by the customer need to be included in their purchase order.
-        order.setProduct(new Product(2, "Keyboard Dell", 10.0 , 1));
-        order.setProduct(new Product(3, "Laptop Samsung", 500.0 , 1));
-        order.setProduct(new Product(4, "Mouse Pad RedDragon", 2.0 , 1));
+        order.SetProduct(new Product(2, "Keyboard Dell", 10.0 , 1));
+        order.SetProduct(new Product(3, "Laptop Samsung", 500.0 , 1));
+        order.SetProduct(new Product(4, "Mouse Pad RedDragon", 2.0 , 1));
 
 
         Console.Clear();
@@ -31,17 +31,16 @@ class Program
         Console.WriteLine("---------------------------------------------------------------------------");
         Console.WriteLine("Shipping label");
         Console.WriteLine("---------------------------------------------------------------------------");
-        Console.WriteLine(order.getShippingLabel());
+        Console.WriteLine(order.GetShippingLabel());
         Console.WriteLine("---------------------------------------------------------------------------");
         Console.WriteLine("Packing label");
         Console.WriteLine("---------------------------------------------------------------------------");
-        Console.WriteLine(order.getPackingLabel());
+        Console.WriteLine(order.GetPackingLabel());
         
         Console.WriteLine("---------------------------------------------------------------------------");
-        Console.WriteLine($"Order total including shipping: ${order.getTotalOrderCoast()}");
+        Console.WriteLine($"Order total including shipping: ${order.GetTotalOrderCoast()}");
         Console.WriteLine("---------------------------------------------------------------------------");
-        //Console.WriteLine(product.getTotalCost());
-
+        
         //---------------------------------------------------------------------
         //This second part refers to the second customer and his order.
         //Loading other customer address
@@ -52,21 +51,21 @@ class Program
 
         //Once the customer for the order has been defined, the next step is to create a purchase order.
         order = new Order(customer, new Product(1, "Set of frying pans", 42.99 , 1));
-        order.setProduct(new Product(2, "Libbey Ascent 16-Piece Tumbler and Rocks Glass Set", 10.0 , 2));
-        order.setProduct(new Product(3, "Riveira Bamboo Wooden Spoons for Cooking 6-Piece", 500.0 , 1));
+        order.SetProduct(new Product(2, "Libbey Ascent 16-Piece Tumbler and Rocks Glass Set", 10.0 , 2));
+        order.SetProduct(new Product(3, "Riveira Bamboo Wooden Spoons for Cooking 6-Piece", 500.0 , 1));
 
         Console.WriteLine("");
         Console.WriteLine("Second client");
         Console.WriteLine("---------------------------------------------------------------------------");
         Console.WriteLine("Shipping label");
         Console.WriteLine("---------------------------------------------------------------------------");
-        Console.WriteLine(order.getShippingLabel());
+        Console.WriteLine(order.GetShippingLabel());
         Console.WriteLine("---------------------------------------------------------------------------");
         Console.WriteLine("Packing label");
         Console.WriteLine("---------------------------------------------------------------------------");
-        Console.WriteLine(order.getPackingLabel());
+        Console.WriteLine(order.GetPackingLabel());
         Console.WriteLine("---------------------------------------------------------------------------");
-        Console.WriteLine($"Order total including shipping: ${order.getTotalOrderCoast()}");
+        Console.WriteLine($"Order total including shipping: ${order.GetTotalOrderCoast()}");
         Console.WriteLine("---------------------------------------------------------------------------");
         
     }

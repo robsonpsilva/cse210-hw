@@ -15,22 +15,22 @@ class Customer
         return _customerAddress.isInUSA();
     }
 
-    public void setCustomerName(string customerName)
+    public void SetCustomerName(string customerName)
     {
         this._customerName = customerName;
     }
 
-    public void setCustomerAddress(Address customerAddress)
+    public void SetCustomerAddress(Address customerAddress)
     {
         this._customerAddress = customerAddress;
     }
 
-    public string getCustomerName()
+    public string GetCustomerName()
     {
         return this._customerName;
     }
 
-    public Address getCustomerAddress()
+    public Address GetCustomerAddress()
     {
         return this._customerAddress;
     }

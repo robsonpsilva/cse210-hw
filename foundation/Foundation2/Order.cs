@@ -14,12 +14,12 @@ class Order
         this._customer = customer;
     }
 
-    public void setProduct(Product product)
+    public void SetProduct(Product product)
     {
         this._products.Add(product);
     }
 
-    public string getPackingLabel()
+    public string GetPackingLabel()
     {
         string packingLabel = "";
         int count = 0;
@@ -28,31 +28,31 @@ class Order
             count++;
             if (count != this._products.Count())
             {
-                packingLabel += $"Product Id: {p.getProductId()} - Product name: {p.getProductName()}" + Environment.NewLine;
+                packingLabel += $"Product Id: {p.GetProductId()} - Product name: {p.GetProductName()}" + Environment.NewLine;
             }
             else{
-                packingLabel += $"Product Id: {p.getProductId()} - Product name: {p.getProductName()}";
+                packingLabel += $"Product Id: {p.GetProductId()} - Product name: {p.GetProductName()}";
             }
             
         }
         return packingLabel;
     }
 
-    public string getShippingLabel()
+    public string GetShippingLabel()
     {
-        string shippingLabel =_customer.getCustomerName() + Environment.NewLine +
-        _customer.getCustomerAddress().getFullAddress();
+        string shippingLabel =_customer.GetCustomerName() + Environment.NewLine +
+        _customer.GetCustomerAddress().GetFullAddress();
         return shippingLabel;
     }
 
-    public double getTotalOrderCoast()
+    public double GetTotalOrderCoast()
     {
         double total = 0;
 
         //Please note that at this point we are calculating the total without considering whether the customer is in the USA or not.
         foreach (Product p in this._products)
         {
-            total += p.getTotalCost();
+            total += p.GetTotalCost();
         }
         if(this._customer.liveInUSA())
         {

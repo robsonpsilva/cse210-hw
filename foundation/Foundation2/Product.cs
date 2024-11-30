@@ -15,47 +15,47 @@ class Product
         this._productQuantity = productQuantity;
     }
 
-    public double getTotalCost()
+    public double GetTotalCost()
     {
        return this._productPrice * this._productQuantity; 
     }
 
-    public int getProductId()
+    public int GetProductId()
     {
         return this._productId;
     }
 
-    public string getProductName()
+    public string GetProductName()
     {
         return this._productName;
     }
 
-    public double getProductPrice()
+    public double GetProductPrice()
     {
         return this._productPrice;
     }
 
-    public double getProductQuantity()
+    public double GetProductQuantity()
     {
         return this._productQuantity;
     }
 
-    public void setProductId(int productId)
+    public void SetProductId(int productId)
     {
         this._productId = productId;
     }
     
-    public void setProductName(string productName)
+    public void SetProductName(string productName)
     {
         this._productName = productName;
     }
 
-    public void setProductPrice(double productPrice)
+    public void SetProductPrice(double productPrice)
     {
         this._productPrice = productPrice;
     }
 
-    public void setProductQuantity(double productQuantity)
+    public void SetProductQuantity(double productQuantity)
     {
         this._productQuantity = productQuantity;
     }

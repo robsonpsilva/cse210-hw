@@ -17,28 +17,28 @@ class Address
     {
         return _country.ToUpper() == "USA";
     }
-    public string getFullAddress()
+    public string GetFullAddress()
     {
         string address = _streetAddress + Environment.NewLine + $"{_city}, {_stateProvince}"
         + Environment.NewLine + _country;
         return address;
     }
 
-    public void setStreetAddress(string streetAddress)
+    public void SetStreetAddress(string streetAddress)
     {
         this._streetAddress = streetAddress;
     }
-    public void setCity(string city)
+    public void SetCity(string city)
     {
         this._city = city;
     }
 
-    public void setStateProvince(string stateProvince)
+    public void SetStateProvince(string stateProvince)
     {
         this._stateProvince = stateProvince;
     }
 
-    public void setCountry(string country)
+    public void SetCountry(string country)
     {
         this._country = country;
     }
