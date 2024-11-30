@@ -56,7 +56,7 @@ class Program
         
         foreach (Video v in videos)
         {
-            Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine($"Title: {v.GetTitle()} - Author: {v.GetAuthor()} - Lenght: {v.GetLenght()} - Number of Comments: {v.GetNumberOfComments()}");
             Console.WriteLine("");
 
@@ -64,7 +64,7 @@ class Program
             
             foreach(Comment comment1 in c)
             {
-                Console.WriteLine($"{comment1.GetComment()}");
+                Console.WriteLine($"{comment1.GetPersonName()}: {comment1.GetComment()}");
             }
             Console.WriteLine("");
         }
