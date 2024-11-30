@@ -15,11 +15,11 @@ class Program
        
         //Inserting a second comment into the video.
         comment = new Comment("berkeduzova", "WONDERFUL VİDEO. THANKS NATIONAL GEOPHRATICS.");
-        v1.setComments(comment);
+        v1.SetComments(comment);
 
         //Inserting a third comment into the video.
         comment = new Comment("fatbardh94", "Perfect guys, what a wonderful job God made it happen.");
-        v1.setComments(comment);
+        v1.SetComments(comment);
 
         //Putting the video in the list
         videos.Add(v1);
@@ -29,10 +29,10 @@ class Program
         new Comment("@ryanrock02", "Let's pray Taal eruption doesn't get worse"));
 
         //Adding a second comment
-        v2.setComments(new Comment("@jomolololo4398", "101 series is your best one"));
+        v2.SetComments(new Comment("@jomolololo4398", "101 series is your best one"));
 
         //Adding a third comment
-        v2.setComments(new Comment("@capnflamesword", "It's more fun to learn something when you're not forced to."));
+        v2.SetComments(new Comment("@capnflamesword", "It's more fun to learn something when you're not forced to."));
 
         //Putting the video in the list
         videos.Add(v2);
@@ -41,13 +41,13 @@ class Program
         Video v3 = new Video("Battle bots", "Discovery", 1830, new Comment("@LightningGTM", "PLEASE bring BattleBots back for more seasons. There's nothing else like it on TV"));
 
         //Adding a second comment
-        v3.setComments(new Comment("@betterbillie", "We need more of this in our lives!!"));
+        v3.SetComments(new Comment("@betterbillie", "We need more of this in our lives!!"));
 
         //Adding a third comment
-        v3.setComments(new Comment("@snoleopard", "i like how this video progresses through the seasons in chronological order"));
+        v3.SetComments(new Comment("@snoleopard", "i like how this video progresses through the seasons in chronological order"));
         
         //Adding a fourth comment
-        v3.setComments(new Comment("@The_Black_Sheep95", "Nerds and their awesome expensive battle-Bots that i love to watch! "));
+        v3.SetComments(new Comment("@The_Black_Sheep95", "Nerds and their awesome expensive battle-Bots that i love to watch! "));
 
         //Putting the video in the list
         videos.Add(v3);
@@ -57,14 +57,14 @@ class Program
         foreach (Video v in videos)
         {
             Console.WriteLine("--------------------------------------------------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine($"Title: {v.getTitle()} - Author: {v.getAuthor()} - Lenght: {v.getLenght()} - Number of Comments: {v.getNumberOfComments()}");
+            Console.WriteLine($"Title: {v.GetTitle()} - Author: {v.GetAuthor()} - Lenght: {v.GetLenght()} - Number of Comments: {v.GetNumberOfComments()}");
             Console.WriteLine("");
 
             List<Comment> c = v.GetComments();
             
             foreach(Comment comment1 in c)
             {
-                Console.WriteLine($"{comment1.getComment()}");
+                Console.WriteLine($"{comment1.GetComment()}");
             }
             Console.WriteLine("");
         }

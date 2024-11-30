@@ -10,21 +10,21 @@ class Comment
         this._personName = personName;
     }
 
-    public string getComment()
+    public string GetComment()
     {
         return this._commentText;
     }
-    public string getPersonName()
+    public string GetPersonName()
     {
         return this._personName;
     }
 
-    public void setComment(string commentText)
+    public void SetComment(string commentText)
     {
         this._commentText = commentText;
     }
 
-    public void setPersonName(string personName)
+    public void SetPersonName(string personName)
     {
         this._personName = personName;
     }

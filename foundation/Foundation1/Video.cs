@@ -15,31 +15,31 @@ class Video
         this._comments.Add(comment);
     }
 
-    public void setTitle(string title)
+    public void SetTitle(string title)
     {
        this._title = title; 
     }
-    public void setAuthor(string author)
+    public void SetAuthor(string author)
     {
         this._author = author;
     }
-    public void setLenght(int lenght)
+    public void SetLenght(int lenght)
    {
      this._lenght = lenght;
    }
-   public void setComments(Comment comment)
+   public void SetComments(Comment comment)
    {
         this._comments.Add(comment);
    }
-   public string getTitle()
+   public string GetTitle()
    {
         return this._title;
    }
-   public string getAuthor()
+   public string GetAuthor()
    {
         return this._author;
    }
-   public int getLenght()
+   public int GetLenght()
    {
         return this._lenght;
    }
@@ -47,7 +47,7 @@ class Video
    {
         return this._comments;
    }
-   public int getNumberOfComments()
+   public int GetNumberOfComments()
    {
         return this._comments.Count();
    }
