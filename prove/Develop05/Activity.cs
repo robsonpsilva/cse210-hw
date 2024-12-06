@@ -3,36 +3,39 @@ public class Activity
 {
     string _activityName;
     string _activityDescription;
-    int activityDuration;
+    int _activityDuration;
     string _endingMessage;
+
+    
+
     
 
     public Activity(string activityName, string activityDescription, int activityDuration)
     {
         this._activityName = activityName;
         this._activityDescription = activityDescription;
-        this.activityDuration = activityDuration;
+        this._activityDuration = activityDuration;
     }
 
-    public void OpeningMessage()
+    public string OpeningMessage()
     {
         
-        string message = $"Welcome to the {this._activityName} Activity. {Environment.NewLine}{this._activityDescription}";
-        message += $"{Environment.NewLine}How long, in seconds, would you like for your session?";
-        Console.WriteLine(message);
+        string message = $"Welcome to the {this._activityName}. {Environment.NewLine}{Environment.NewLine}{this._activityDescription}";
+        message += $"{Environment.NewLine}{Environment.NewLine}How long, in seconds, would you like for your session?";
+        Console.Write(message);
+        return Console.ReadLine();
     }
     public void EndingMessage()
     {
         string message = $"{this._endingMessage}{Environment.NewLine}";
-        message += $"you have completed another {this.activityDuration} of the {this._activityName}.";
-        Console.WriteLine();
+        message += $"you have completed another {this._activityDuration} of the {this._activityName}.";
+        Console.WriteLine(message);
     }
 
     public void ShowSpinner(int  duration)
     {
         int i = 0;
-        Console.Clear();
-        while(i<=60)
+        while(i<=duration)
         {
             i++;
             Console.Write("\\");
@@ -56,10 +59,33 @@ public class Activity
         {
             Console.Write($"{i}");
             Thread.Sleep(1000);
-            Console.Write("\b \b");
-            Console.Write("\b \b");
+            if (i >=10)
+            {
+                Console.Write("\b \b");
+                Console.Write("\b \b");
+            }
+            else
+            {
+                Console.Write("\b \b");
+            }
+            
             i-=1;
         }
     }
+
+    public void SetActivityDuration(int activityDuration)
+    {
+        this._activityDuration = activityDuration;
+    }
+    public int GetActivityDuration()
+    {
+        return this._activityDuration;
+    }
+
+    public void RunTimer()
+    {
+
+    }
+  
 
 }
