@@ -2,9 +2,11 @@ using System;
 
 /*
     ----- Exceding Requirements -----
-   Exceeding the requirements, the PromptGenerator class loads the prompts 
+   1- Exceeding the requirements, the PromptGenerator class loads the prompts 
    and questions and randomly selects which ones to display. This class also 
-   keeps track of which ones have been used before to avoid repetition.  
+   keeps track of which ones have been used before to avoid repetition. 
+
+   2- To exceed the requirements include an additional activity - Stretching Activity.
 */
 class Program
 {
