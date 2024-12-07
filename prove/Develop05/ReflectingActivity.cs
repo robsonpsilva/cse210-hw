@@ -1,31 +1,38 @@
 
 public class ReflectingActivity:Activity
 {
-    List<string> _prompts = new List<string>();
-    List<string> _questions = new List<string>();
-
+    List<string> _prompts;
+    List<string> _questions;
+    PromptGenerator _promptGenerator;
+    PromptGenerator _questionsGenarator;
     
     public ReflectingActivity(string activityName, string activityDescription, int activityDuration, List<string> prompts, List<string> questions):
     base(activityName,activityDescription,activityDuration){
         this._prompts = prompts;
         this._questions = questions;
-        
+
+        //The PromptGenerator class is responsible for randomly choosing messages and displaying them without repeating them, that is, a used message will not be repeated.
+        this._promptGenerator = new PromptGenerator(this._prompts); //Initialize with prompts messages
+        this._questionsGenarator = new PromptGenerator(this._questions); //Initialize with quenstions messages  
     }
     
     public void SetPrompt(string prompt)
     {
-        this._prompts.Add(prompt);
+        this._prompts.Add(prompt); //Update the message list
+        this._promptGenerator.setQuestion(prompt); //Updates the list of questions and the PromptGenerator, which is the component responsible for randomly choosing messages, and choosing without repetition.
     }
     public void SetQuestions(string question)
     {
-        this._questions.Add(question);
+        this._questions.Add(question);//Update the question list
+        this._questionsGenarator.setQuestion(question); //Updates the list of questions and the PromptGenerator, which is the component responsible for randomly choosing messages, and choosing without repetition.
+
     }
+
 
 
     public void Run()
     {
-        PromptGenerator prompts = new PromptGenerator(this._prompts); 
-        PromptGenerator questions = new PromptGenerator(this._questions);
+        
         Console.Clear();
         string time = base.OpeningMessage();
         if(int.TryParse(time, out int result))
@@ -40,14 +47,14 @@ public class ReflectingActivity:Activity
             DateTime futureTime = startTime.AddSeconds(base.GetActivityDuration());
             DateTime currentTime;
             currentTime = DateTime.Now;
-
-            while (currentTime < futureTime)
+            bool flag = true;
+            while ((currentTime < futureTime) && flag)
             {
                 Console.Clear();
                 Console.WriteLine("Consider the following prompt:");
                 Console.WriteLine("");
 
-                var p = prompts.getRandomQuestion();
+                var p = this._promptGenerator.getRandomQuestion();
                 Console.WriteLine($" --- {p.Item2} ----");
                 Console.WriteLine("");
                 Console.Write("When you have something in mind, press to continue.");
@@ -58,19 +65,25 @@ public class ReflectingActivity:Activity
                 Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
                 Console.WriteLine("");
                 Console.Write("You may begin in: ");
-                base.ShowCountDown(3);
+                base.ShowCountDown(5);
 
                 Console.Clear();
-                var q = questions.getRandomQuestion();
+                var q = this._questionsGenarator.getRandomQuestion();
                 Console.WriteLine(q.Item2);
-                base.ShowSpinner(5);
+                base.ShowSpinner(3);
                 
                 Console.WriteLine("");             
-                q = questions.getRandomQuestion();
+                q = this._questionsGenarator.getRandomQuestion();
                 Console.WriteLine(q.Item2);
-                base.ShowSpinner(5);
+                base.ShowSpinner(3);
 
                 currentTime = DateTime.Now;
+
+                //If all prompts or questions have been used, end the activity.
+                if ((p.Item1 == -1) || (q.Item1 == -1))
+                {
+                    flag = false;
+                }
             }
 
             Console.WriteLine("");
