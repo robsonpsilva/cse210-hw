@@ -37,6 +37,7 @@ public class ListingActivity:Activity
             bool flag = true;
             while ((currentTime < futureTime) && flag)
             {
+                Console.Write(">");
                 Console.ReadLine();
                 currentTime = DateTime.Now;
 

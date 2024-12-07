@@ -5,6 +5,7 @@ public class Activity
     private string _activityDescription;
     private int _activityDuration;
     private string _endingMessage;
+    private string _openingMessage;
 
     
 
@@ -15,16 +16,19 @@ public class Activity
         this._activityName = activityName;
         this._activityDescription = activityDescription;
         this._activityDuration = activityDuration;
-        this._endingMessage = $"Welcome to the {this._activityName}. {Environment.NewLine}{Environment.NewLine}{this._activityDescription}";
-        this._endingMessage += $"{Environment.NewLine}{Environment.NewLine}How long, in seconds, would you like for your session? ";
+
+        this._openingMessage = $"Welcome to the {this._activityName}. {Environment.NewLine}{Environment.NewLine}{this._activityDescription}";
+        this._openingMessage+= $"{Environment.NewLine}{Environment.NewLine}How long, in seconds, would you like for your session? ";
     }
 
     public string OpeningMessage()
-    {        
+    {
+        Console.Write(this._openingMessage);       
         return Console.ReadLine();
     }
     public void EndingMessage()
     {
+        this._endingMessage = $"you have completed another {this._activityDuration} seconds of the {this._activityName}.";
         Console.WriteLine(this._endingMessage);
     }
 
