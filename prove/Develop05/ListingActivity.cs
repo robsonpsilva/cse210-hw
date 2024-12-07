@@ -17,10 +17,7 @@ public class ListingActivity:Activity
         if(int.TryParse(time, out int result))
         {
             base.SetActivityDuration(result); // After receiving duration from the user we set the activity duration in class
-            Console.Clear();
-            Console.WriteLine("Get ready...");
-            base.ShowSpinner(5);
-            Console.WriteLine("");
+            base.GetReady(3);
             
             Console.Clear();
             Console.WriteLine("List as many responses you can to the following prompt:");
@@ -48,13 +45,7 @@ public class ListingActivity:Activity
                 }
                 
             }
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("Well done!!");
-            Console.WriteLine("");
-            base.ShowSpinner(5);
-            base.EndingMessage();
-            base.ShowSpinner(5);
+            base.EndingMessage(3);
 
         }
         else

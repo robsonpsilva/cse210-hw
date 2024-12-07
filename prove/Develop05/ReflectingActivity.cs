@@ -38,15 +38,11 @@ public class ReflectingActivity:Activity
         if(int.TryParse(time, out int result))
         {
             base.SetActivityDuration(result); // After receiving duration from the user we set the activity duration in class
-            Console.Clear();
-            Console.WriteLine("Get ready...");
-            base.ShowSpinner(5);
-            Console.WriteLine("");
+            base.GetReady(3);
 
             DateTime startTime = DateTime.Now;
             DateTime futureTime = startTime.AddSeconds(base.GetActivityDuration());
-            DateTime currentTime;
-            currentTime = DateTime.Now;
+            DateTime currentTime = DateTime.Now;
             bool flag = true;
             while ((currentTime < futureTime) && flag)
             {
@@ -85,14 +81,8 @@ public class ReflectingActivity:Activity
                     flag = false;
                 }
             }
-
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("Well done!!");
-            Console.WriteLine("");
-            base.ShowSpinner(5);
-            base.EndingMessage();
-            base.ShowSpinner(5);
+            Console.Clear();
+            base.EndingMessage(3);
         }
         else
         {

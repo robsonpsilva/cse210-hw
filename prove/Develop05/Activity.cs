@@ -26,10 +26,23 @@ public class Activity
         Console.Write(this._openingMessage);       
         return Console.ReadLine();
     }
-    public void EndingMessage()
+    public void EndingMessage(int delayInSeconds)
     {
+        Console.Clear();
+        Console.WriteLine("Well done!!");
+        Console.WriteLine("");
+        ShowSpinner(delayInSeconds);
         this._endingMessage = $"you have completed another {this._activityDuration} seconds of the {this._activityName}.";
         Console.WriteLine(this._endingMessage);
+        ShowSpinner(delayInSeconds);
+    }
+
+    public void GetReady(int delayInSeconds)
+    {
+        Console.Clear();
+        Console.WriteLine("Get ready...");
+        ShowSpinner(delayInSeconds);
+        Console.WriteLine("");
     }
 
     public void ShowSpinner(int  duration)
