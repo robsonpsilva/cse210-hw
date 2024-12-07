@@ -21,14 +21,14 @@ public class Activity
     {
         
         string message = $"Welcome to the {this._activityName}. {Environment.NewLine}{Environment.NewLine}{this._activityDescription}";
-        message += $"{Environment.NewLine}{Environment.NewLine}How long, in seconds, would you like for your session?";
+        message += $"{Environment.NewLine}{Environment.NewLine}How long, in seconds, would you like for your session? ";
         Console.Write(message);
         return Console.ReadLine();
     }
     public void EndingMessage()
     {
         string message = $"{this._endingMessage}{Environment.NewLine}";
-        message += $"you have completed another {this._activityDuration} of the {this._activityName}.";
+        message += $"you have completed another {this._activityDuration} seconds of the {this._activityName}.";
         Console.WriteLine(message);
     }
 
@@ -82,10 +82,6 @@ public class Activity
         return this._activityDuration;
     }
 
-    public void RunTimer()
-    {
-
-    }
   
 
 }
