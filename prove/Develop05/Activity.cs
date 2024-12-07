@@ -1,10 +1,10 @@
 
 public class Activity
 {
-    string _activityName;
-    string _activityDescription;
-    int _activityDuration;
-    string _endingMessage;
+    private string _activityName;
+    private string _activityDescription;
+    private int _activityDuration;
+    private string _endingMessage;
 
     
 
@@ -15,21 +15,17 @@ public class Activity
         this._activityName = activityName;
         this._activityDescription = activityDescription;
         this._activityDuration = activityDuration;
+        this._endingMessage = $"Welcome to the {this._activityName}. {Environment.NewLine}{Environment.NewLine}{this._activityDescription}";
+        this._endingMessage += $"{Environment.NewLine}{Environment.NewLine}How long, in seconds, would you like for your session? ";
     }
 
     public string OpeningMessage()
-    {
-        
-        string message = $"Welcome to the {this._activityName}. {Environment.NewLine}{Environment.NewLine}{this._activityDescription}";
-        message += $"{Environment.NewLine}{Environment.NewLine}How long, in seconds, would you like for your session? ";
-        Console.Write(message);
+    {        
         return Console.ReadLine();
     }
     public void EndingMessage()
     {
-        string message = $"{this._endingMessage}{Environment.NewLine}";
-        message += $"you have completed another {this._activityDuration} seconds of the {this._activityName}.";
-        Console.WriteLine(message);
+        Console.WriteLine(this._endingMessage);
     }
 
     public void ShowSpinner(int  duration)

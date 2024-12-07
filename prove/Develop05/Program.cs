@@ -10,7 +10,8 @@ class Program
         //Initializing components
         
         //Initializing breathing activity
-        BreathingActivity breathingActivity = new BreathingActivity("Breathing Activity","This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.", 30);
+        BreathingActivity breathingActivity = new BreathingActivity("Breathing Activity",
+        "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.", 30);
         
 
         //Initializing reflecting activity
@@ -21,7 +22,7 @@ class Program
         prompts.Add("Think of a time when you helped someone in need.");
         prompts.Add("Think of a time when you did something truly selfless.");
         
-        //Loading the queestions list
+        //Loading the questions list
         List<string> questions = new List<string>();
         questions.Add("Why was this experience meaningful to you?");
         questions.Add("Have you ever done anything like this before?");
@@ -37,7 +38,17 @@ class Program
         "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.",
         30,prompts,questions);
 
-        
+        //Initializing listing activity
+        prompts = new List<string>();
+        prompts.Add("Who are people that you appreciate?");
+        prompts.Add("What are personal strengths of yours?");
+        prompts.Add("Who are people that you have helped this week?");
+        prompts.Add("When have you felt the Holy Ghost this month?");
+        prompts.Add("Who are some of your personal heroes?");
+
+        ListingActivity listingActivity = new ListingActivity("Listing Activity", 
+        "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.",
+        30, prompts); 
         
         //Creating the main menu
 
@@ -70,6 +81,7 @@ class Program
                 else if (choice == "3")
                 {
                     //Listing activity code
+                    listingActivity.Run();
                 }
                 else if(choice == "4")
                 {

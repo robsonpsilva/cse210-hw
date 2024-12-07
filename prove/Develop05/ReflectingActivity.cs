@@ -1,10 +1,10 @@
 
 public class ReflectingActivity:Activity
 {
-    List<string> _prompts;
-    List<string> _questions;
-    PromptGenerator _promptGenerator;
-    PromptGenerator _questionsGenarator;
+    private List<string> _prompts;
+    private List<string> _questions;
+    private PromptGenerator _promptGenerator;
+    private PromptGenerator _questionsGenarator;
     
     public ReflectingActivity(string activityName, string activityDescription, int activityDuration, List<string> prompts, List<string> questions):
     base(activityName,activityDescription,activityDuration){
