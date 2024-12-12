@@ -13,6 +13,10 @@ public abstract class Goal{
         
     }
 
+    protected int GetPoints()
+    {
+        return this._goalAccomplishedPoints;
+    }
     
     public abstract void RecordEvent();
     public abstract bool IsComplete();
@@ -20,6 +24,6 @@ public abstract class Goal{
     public virtual string getDetailsString()
     {
         
-         return $"[] {this._name} ({this._description})";
-
+        return $"{this._name} ({this._description})";
+    }
 }
