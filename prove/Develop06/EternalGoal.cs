@@ -1,6 +1,7 @@
 
 public class EternalGoal:Goal
 {
+
     public EternalGoal(string name, string description, int points):base(name, description, points)
     {
 
@@ -17,12 +18,16 @@ public class EternalGoal:Goal
     }
     public override string getDetailsString()
     {
-        return $"[] {base.getDetailsString()}";
+        return $"[ ] {base.getDetailsString()}";
     }
 
     public override string getStringRepresantation()
     {
         return $"Eternal Goal:{this.getDetailsString()}, {base.GetPoints()}";
+    }
+    public int GetTotalPoints()
+    {
+        return base.GetPoints();
     }
 
 }

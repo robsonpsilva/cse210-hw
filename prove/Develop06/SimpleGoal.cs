@@ -14,7 +14,7 @@ public class SimpleGoal:Goal
 
     public override string getDetailsString()
     {
-        string message = $"[] {base.getDetailsString()}";
+        string message = $"[ ] {base.getDetailsString()}";
         if (this._isCompleted)
         {
             message = $"[x] {base.getDetailsString()}";
@@ -29,6 +29,17 @@ public class SimpleGoal:Goal
     public override bool IsComplete()
     {
         return this._isCompleted;
+    }
+    public int GetTotalPoints()
+    {
+        int total = 0;
+        
+        if (this.IsComplete())
+        {
+            total = base.GetPoints();
+        }
+
+        return total;
     }
 
 }
