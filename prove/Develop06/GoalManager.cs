@@ -32,7 +32,12 @@ public class GoalManager
             }
             else if(choice == "2")
             {
-
+                Console.Clear();
+                Console.WriteLine("The goal are:");
+                foreach(Goal g in this._goals)
+                {
+                    Console.WriteLine(g.getDetailsString());
+                }
             }
             else if(choice == "3")
             {
