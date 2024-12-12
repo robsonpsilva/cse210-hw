@@ -66,6 +66,8 @@ public class GoalManager
         string name;
         string description;
         string points;
+        string target;
+        string bonus;
 
         Console.Clear();
         Console.WriteLine("The types of Goals are:");
@@ -104,6 +106,37 @@ public class GoalManager
             }
             else if(choice == "3")
             {
+                Console.WriteLine("");
+                Console.Write("How many times does this goal need to be accomplished for a bonus?");
+                target = Console.ReadLine();
+                int t;
+                isNumeric = int.TryParse(target, out t);
+                if (isNumeric==true)
+                {
+                    Console.WriteLine("");
+                    Console.Write("What is te bonus for accomplishing it thet many times?");
+                    bonus = Console.ReadLine();
+                    int b;
+                    isNumeric = int.TryParse(bonus, out b);
+                    if(isNumeric == true)
+                    {
+                        CheckListGoal checkListGoal = new CheckListGoal(name, description, p, 0, t, b);
+                        this._goals.Add(checkListGoal);
+                    }
+                    else
+                    {
+                        Console.WriteLine("");
+                        Console.Write("The bonus entered is invalid, please press a key to continue");
+                        Console.ReadLine(); 
+                    }
+                    
+                }
+                else
+                {
+                    Console.WriteLine("");
+                    Console.Write("The number of times entered is invalid, please press a key to continue");
+                    Console.ReadLine();
+                }
                 
             }
         }
