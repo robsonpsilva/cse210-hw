@@ -2,6 +2,7 @@
 public class GoalManager
 {
     List<Goal> _goals = new List<Goal>();
+    FileManager fileManager = new FileManager();
     int _score = 0;
     bool flag = true;
     public void Start()
@@ -35,7 +36,7 @@ public class GoalManager
             }
             else if(choice == "3")
             {
-
+                SaveToFile();
             }
             else if(choice == "4")
             {
@@ -185,6 +186,15 @@ public class GoalManager
             Console.ReadLine();
         }
 
+    }
+
+    private void SaveToFile()
+    {
+        Console.Clear();
+        Console.Write("What is the filename for the goal file? ");
+        string fileName = Console.ReadLine();
+        
+        this.fileManager.SaveToFile(fileName,this._goals,this._score);
     }
 
 }

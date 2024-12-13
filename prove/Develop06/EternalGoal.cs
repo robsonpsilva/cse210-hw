@@ -21,9 +21,9 @@ public class EternalGoal:Goal
         return $"[ ] {base.getDetailsString()}";
     }
 
-    public override string getStringRepresantation()
+    public override string getStringRepresentation()
     {
-        return $"Eternal Goal:{this.getDetailsString()}, {base.GetTotalPoints()}";
+        return $"Eternal Goal:{base.GetName()},{base.getDescription()},{base.GetTotalPoints()}";
     }
     public override int GetTotalPoints()
     {

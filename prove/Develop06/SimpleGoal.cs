@@ -21,9 +21,9 @@ public class SimpleGoal:Goal
         }
         return message;
     }
-    public override string getStringRepresantation()
+    public override string getStringRepresentation()
     {
-        return $"Simple Goal:{this.getDetailsString()}, {base.GetTotalPoints()}";
+        return $"Simple Goal:{base.GetName()},{base.getDescription()},{base.GetTotalPoints()},{this._isCompleted}";
     }
 
     public override bool IsComplete()

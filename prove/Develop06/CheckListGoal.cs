@@ -39,9 +39,9 @@ public class CheckListGoal:Goal
 
         return message;
     }
-    public override string getStringRepresantation()
+    public override string getStringRepresentation()
     {
-        return $"CheckList Goal:{this.getDetailsString()}, {base.GetTotalPoints()}, {this._bonus}, {this._target}, {this._valueCompleted}";
+        return $"CheckListGoal:{base.GetName()},{base.getDescription()},{base.GetTotalPoints()},{this._bonus},{this._target},{this._valueCompleted}";
     }
     public override int GetTotalPoints()
     {
