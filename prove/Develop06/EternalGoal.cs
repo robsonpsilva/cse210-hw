@@ -23,11 +23,11 @@ public class EternalGoal:Goal
 
     public override string getStringRepresantation()
     {
-        return $"Eternal Goal:{this.getDetailsString()}, {base.GetPoints()}";
+        return $"Eternal Goal:{this.getDetailsString()}, {base.GetTotalPoints()}";
     }
-    public int GetTotalPoints()
+    public override int GetTotalPoints()
     {
-        return base.GetPoints();
+        return base.GetTotalPoints();
     }
 
 }

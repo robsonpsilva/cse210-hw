@@ -13,7 +13,7 @@ public abstract class Goal{
         
     }
 
-    protected int GetPoints()
+    public virtual int GetTotalPoints()
     {
         return this._goalAccomplishedPoints;
     }

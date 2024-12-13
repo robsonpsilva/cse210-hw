@@ -41,18 +41,18 @@ public class CheckListGoal:Goal
     }
     public override string getStringRepresantation()
     {
-        return $"CheckList Goal:{this.getDetailsString()}, {base.GetPoints()}, {this._bonus}, {this._target}, {this._valueCompleted}";
+        return $"CheckList Goal:{this.getDetailsString()}, {base.GetTotalPoints()}, {this._bonus}, {this._target}, {this._valueCompleted}";
     }
-    public int GetTotalPoints()
+    public override int GetTotalPoints()
     {
         int total = 0;
         if (this.IsComplete())
         {
-            total = this._valueCompleted * base.GetPoints() + this._bonus;
+            total = this._valueCompleted * base.GetTotalPoints() + this._bonus;
         }
         else
         {
-            total = this._valueCompleted * base.GetPoints();
+            total = this._valueCompleted * base.GetTotalPoints();
         }
         return total;
     }

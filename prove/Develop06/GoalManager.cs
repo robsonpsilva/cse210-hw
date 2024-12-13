@@ -10,8 +10,7 @@ public class GoalManager
         {
             string choice;
             //Shows the amount of points the user has.
-            Console.Clear();
-            Console.WriteLine($"You have {this._score}");
+            Console.WriteLine($"You have {this._score} points.");
             Console.WriteLine("");
             //Showing the menu.
             Console.WriteLine("Menu Options:");
@@ -21,7 +20,7 @@ public class GoalManager
             Console.WriteLine(" 4. Load Goals");
             Console.WriteLine(" 5. Record Event");
             Console.WriteLine(" 6. Quit");
-            Console.Write("Select a choice from the menu:");
+            Console.Write("Select a choice from the menu: ");
 
             choice = Console.ReadLine();
 
@@ -32,12 +31,7 @@ public class GoalManager
             }
             else if(choice == "2")
             {
-                Console.Clear();
-                Console.WriteLine("The goal are:");
-                foreach(Goal g in this._goals)
-                {
-                    Console.WriteLine(g.getDetailsString());
-                }
+                ListGoals();
             }
             else if(choice == "3")
             {
@@ -49,7 +43,7 @@ public class GoalManager
             }
             else if(choice == "5")
             {
-
+                RecordAnEvent();
             }
             else if(choice == "6")
             {
@@ -80,19 +74,15 @@ public class GoalManager
         Console.WriteLine(" 2. Eternal Goal");
         Console.WriteLine(" 3. CheckList Goal");
         
-        Console.Write("Wich type of goal would you like to create?");
+        Console.Write("Wich type of goal would you like to create? ");
         choice = Console.ReadLine();
 
         //The following questions are common to all goals, so to simplify the code they will be asked at the beginning.
-
-        Console.WriteLine("");
-        Console.Write("What is the name of your goal?");
+        Console.Clear();
+        Console.Write("What is the name of your goal? ");
         name = Console.ReadLine();
-        Console.WriteLine("");
-        Console.Write("What is a short description of it?");
+        Console.Write("What is a short description of it? ");
         description = Console.ReadLine();
-
-        Console. WriteLine("");
         Console.Write("What is the amount of points associated with this goal? ");
         points = Console.ReadLine();
         int p;
@@ -111,15 +101,13 @@ public class GoalManager
             }
             else if(choice == "3")
             {
-                Console.WriteLine("");
-                Console.Write("How many times does this goal need to be accomplished for a bonus?");
+                Console.Write("How many times does this goal need to be accomplished for a bonus? ");
                 target = Console.ReadLine();
                 int t;
                 isNumeric = int.TryParse(target, out t);
                 if (isNumeric==true)
                 {
-                    Console.WriteLine("");
-                    Console.Write("What is te bonus for accomplishing it thet many times?");
+                    Console.Write("What is te bonus for accomplishing it thet many times? ");
                     bonus = Console.ReadLine();
                     int b;
                     isNumeric = int.TryParse(bonus, out b);
@@ -142,8 +130,8 @@ public class GoalManager
                     Console.Write("The number of times entered is invalid, please press a key to continue");
                     Console.ReadLine();
                 }
-                
             }
+            
         }
         else
         {
@@ -151,6 +139,41 @@ public class GoalManager
             Console.Write("The amount of points is invalid, please type a key to continue");
             Console.ReadLine();
         }
+        Console.Clear();
+    }
+
+    private void ListGoals()
+    {
+        int i = 0;
+        Console.Clear();
+        Console.WriteLine("The goal are:");
+        foreach(Goal g in this._goals)
+        {
+            i++;
+            Console.WriteLine($"{i}. {g.getDetailsString()}");
+        }
+    }
+
+    private void RecordAnEvent()
+    {
+        ListGoals();
+        Console.Write("Which goal did you accomplish? ");
+        string choice = Console.ReadLine();
+        int c;
+        bool isNumeric = int.TryParse(choice, out c);
+        if (isNumeric==true)
+        {
+            c--;
+            this._goals[c].RecordEvent();
+            this._score += this._goals[c].GetTotalPoints();
+        }
+        else
+        {
+            Console.WriteLine("");
+            Console.Write("Invalid goal's number, please type a key to continue");
+            Console.ReadLine();
+        }
+
     }
 
 }

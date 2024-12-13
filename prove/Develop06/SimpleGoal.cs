@@ -23,20 +23,20 @@ public class SimpleGoal:Goal
     }
     public override string getStringRepresantation()
     {
-        return $"Simple Goal:{this.getDetailsString()}, {base.GetPoints()}";
+        return $"Simple Goal:{this.getDetailsString()}, {base.GetTotalPoints()}";
     }
 
     public override bool IsComplete()
     {
         return this._isCompleted;
     }
-    public int GetTotalPoints()
+    public override int GetTotalPoints()
     {
         int total = 0;
         
         if (this.IsComplete())
         {
-            total = base.GetPoints();
+            total = base.GetTotalPoints();
         }
 
         return total;
