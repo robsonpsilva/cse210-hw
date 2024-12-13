@@ -1,4 +1,0 @@
-0
-Simple Goal:Simple Goal 1,Teste Simple Goal 1,20,False
-Eternal Goal:Eternal Goal 1,Teste Eteernal Goal 1,60
-CheckList Goal:Check List 1,Teste CheckList 1,80300,3,0

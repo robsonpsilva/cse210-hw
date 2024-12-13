@@ -1,17 +1,22 @@
 
+using System.ComponentModel;
 public class GoalManager
 {
     List<Goal> _goals = new List<Goal>();
-    FileManager fileManager = new FileManager();
+    FileManager _fileManager = new FileManager();
+
+    int _level = 1; //Exceeding requirements
+    int _levelBonus = 0;//Exceeding requirements
     int _score = 0;
-    bool flag = true;
+    bool _flag = true;
     public void Start()
     {
-        while (flag == true)
+        while (this._flag == true)
         {
             string choice;
             //Shows the amount of points the user has.
             Console.WriteLine($"You have {this._score} points.");
+            Console.WriteLine($"Your currently level is: {this._level}");
             Console.WriteLine("");
             //Showing the menu.
             Console.WriteLine("Menu Options:");
@@ -41,15 +46,19 @@ public class GoalManager
             else if(choice == "4")
             {
                 LoadFromFile();
+                Console.Clear();
+                ListGoals();
             }
             else if(choice == "5")
             {
                 RecordAnEvent();
+                Console.Clear();
+                ListGoals();
             }
             else if(choice == "6")
             {
                 //Exiting the program
-                flag = false;
+                this._flag = false;
             }
             else
             {
@@ -148,10 +157,34 @@ public class GoalManager
         int i = 0;
         Console.Clear();
         Console.WriteLine("The goals are:");
+        this._score = 0;
         foreach(Goal g in this._goals)
         {
             i++;
             Console.WriteLine($"{i}. {g.getDetailsString()}");
+            this._score += g.GetTotalPoints();
+
+            //-------------Exceeding requirements---------------
+            this._level = 1;
+            this._levelBonus = 0;
+            if (this._score > 1000)
+            {
+                this._level = 2;
+                this._levelBonus = 500;
+                this._score += this._levelBonus;
+            }
+            else if (this._score > 3000)
+            {
+                this._level = 3;
+                this._levelBonus = 1000;
+                this._score += this._levelBonus;
+            }
+            else if (this._score > 10000)
+            {
+                this._level = 4;
+                this._levelBonus = 3000;
+                this._score += this._levelBonus;   
+            }
         }
     }
 
@@ -193,33 +226,96 @@ public class GoalManager
         Console.Clear();
         Console.Write("What is the filename for the goal file? ");
         string fileName = Console.ReadLine();
+        try
+        {
+            this._fileManager.SaveToFile(fileName,this._goals,this._score);
+        }
+        catch  (UnauthorizedAccessException ex)
+        {
+            Console.WriteLine("Unauthorized access" + ex.Message);
+            Console.Write("Type a key to continue. ");
+            Console.ReadLine();
+        }
+        catch (IOException ex)
+        {
+            Console.WriteLine("I/O error" + ex.Message);
+            Console.Write("Type a key to continue. ");
+            Console.ReadLine();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("An error occurred" + ex.Message);
+            Console.Write("Type a key to continue. ");
+            Console.ReadLine();
+        }
         
-        this.fileManager.SaveToFile(fileName,this._goals,this._score);
     }
     private void LoadFromFile()
     {
         Console.Clear();
         Console.Write("What is the filename for the goal file? ");
         string fileName = Console.ReadLine();
-        List<string> goalsList = fileManager.LoadFromFile(fileName);
-
-        foreach (string goal in goalsList)
+        try
         {
-            string[] parts = goal.Split(":");
-            if(parts[0] == "SimpleGoal")
+            List<string> goalsList = _fileManager.LoadFromFile(fileName);
+            int line = 0;
+            //Overwriting the previous list with new values
+            this._goals = new List<Goal>();
+            foreach (string goal in goalsList)
             {
+                if (line == 0 && int.TryParse(goal, out this._score))
+                {
+                    line++;
+                }
+                else
+                {
+                    string[] parts = goal.Split(":");
+                    if(parts[0] == "SimpleGoal")
+                    {
+                        string[] item = parts[1].Split("~|~");
+                        SimpleGoal simpleGoal = new SimpleGoal(item[0], item[1],int.Parse(item[2]));
+                        if (item[3].ToLower() == "true")
+                        {
+                            simpleGoal.RecordEvent();
+                        }
+                        this._goals.Add(simpleGoal);
+                    }
+                    else if(parts[0] == "EternalGoal")
+                    {
+                        string[] item = parts[1].Split("~|~");
+                        EternalGoal eternalGoal = new EternalGoal(item[0], item[1],int.Parse(item[2]));
+                        this._goals.Add(eternalGoal);
+                        eternalGoal.RecordEvent();
+                    }
+                    else if(parts[0] == "CheckListGoal")
+                    {
+                        string[] item = parts[1].Split("~|~");
+                        CheckListGoal checkListGoal = 
+                        new CheckListGoal(item[0], item[1],int.Parse(item[2]),int.Parse(item[3]),int.Parse(item[4]),int.Parse(item[5]));
+                        this._goals.Add(checkListGoal);
+                    }
+                }
                 
             }
-            else if(parts[0] == "EternalGoal")
-            {
-
-            }
-            else if(parts[0] == "CheckListGoal")
-            {
-
-            }
         }
-        
+        catch  (UnauthorizedAccessException ex)
+        {
+            Console.WriteLine("Unauthorized access" + ex.Message);
+            Console.Write("Type a key to continue. ");
+            Console.ReadLine();
+        }
+        catch (IOException ex)
+        {
+            Console.WriteLine("I/O error" + ex.Message);
+            Console.Write("Type a key to continue. ");
+            Console.ReadLine();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("An error occurred" + ex.Message);
+            Console.Write("Type a key to continue. ");
+            Console.ReadLine();
+        }    
     }
 
 }

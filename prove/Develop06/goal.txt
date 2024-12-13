@@ -1,0 +1,4 @@
+1510
+SimpleGoal:SimpleGoal 1~|~Teste da SimpleGoal 1~|~30~|~True
+EternalGoal:EternalGoal 1~|~Teste da EternalGoal 1~|~320
+CheckListGoal:CheckList 1~|~Teste CheckList 1~|~70~|~3~|~3~|~450

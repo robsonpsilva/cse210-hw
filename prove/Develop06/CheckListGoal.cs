@@ -30,18 +30,18 @@ public class CheckListGoal:Goal
         string message = "";
         if (!this.IsComplete())
         {
-            message = $"[ ] {base.getDetailsString()} -- Currently completed: {this._valueCompleted}/{this._target}";
+            message = $"[ ] {base.getDetailsString()} - Currently completed: {this._valueCompleted}/{this._target}";
         }
         else
         {
-            message = $"[x] {base.getDetailsString()} -- Currently completed: {this._valueCompleted}/{this._target}";
+            message = $"[x] {base.getDetailsString()} - Currently completed: {this._valueCompleted}/{this._target}";
         }
 
         return message;
     }
     public override string getStringRepresentation()
     {
-        return $"CheckListGoal:{base.GetName()},{base.getDescription()},{base.GetTotalPoints()},{this._bonus},{this._target},{this._valueCompleted}";
+        return $"CheckListGoal:{base.GetName()}~|~{base.getDescription()}~|~{base.GetTotalPoints()}~|~{this._valueCompleted}~|~{this._target}~|~{this._bonus}";
     }
     public override int GetTotalPoints()
     {
