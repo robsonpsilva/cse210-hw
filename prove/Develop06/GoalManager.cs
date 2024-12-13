@@ -146,7 +146,7 @@ public class GoalManager
     {
         int i = 0;
         Console.Clear();
-        Console.WriteLine("The goal are:");
+        Console.WriteLine("The goals are:");
         foreach(Goal g in this._goals)
         {
             i++;
@@ -164,8 +164,19 @@ public class GoalManager
         if (isNumeric==true)
         {
             c--;
-            this._goals[c].RecordEvent();
-            this._score += this._goals[c].GetTotalPoints();
+            if(this._goals[c].IsComplete() == false)
+            {
+                this._goals[c].RecordEvent();
+                this._score += this._goals[c].GetTotalPoints();
+            }
+            else
+            {
+                Console.WriteLine("This goal has already been completed, it is not possible to register a new event.");
+                Console.Write("Type a key to continue. ");
+                Console.ReadLine();
+                Console.Clear();
+            }
+            
         }
         else
         {
