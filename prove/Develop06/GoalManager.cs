@@ -40,7 +40,7 @@ public class GoalManager
             }
             else if(choice == "4")
             {
-
+                LoadFromFile();
             }
             else if(choice == "5")
             {
@@ -195,6 +195,31 @@ public class GoalManager
         string fileName = Console.ReadLine();
         
         this.fileManager.SaveToFile(fileName,this._goals,this._score);
+    }
+    private void LoadFromFile()
+    {
+        Console.Clear();
+        Console.Write("What is the filename for the goal file? ");
+        string fileName = Console.ReadLine();
+        List<string> goalsList = fileManager.LoadFromFile(fileName);
+
+        foreach (string goal in goalsList)
+        {
+            string[] parts = goal.Split(":");
+            if(parts[0] == "SimpleGoal")
+            {
+                
+            }
+            else if(parts[0] == "EternalGoal")
+            {
+
+            }
+            else if(parts[0] == "CheckListGoal")
+            {
+
+            }
+        }
+        
     }
 
 }

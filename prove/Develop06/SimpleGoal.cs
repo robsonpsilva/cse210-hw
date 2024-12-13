@@ -23,7 +23,7 @@ public class SimpleGoal:Goal
     }
     public override string getStringRepresentation()
     {
-        return $"Simple Goal:{base.GetName()},{base.getDescription()},{base.GetTotalPoints()},{this._isCompleted}";
+        return $"SimpleGoal:{base.GetName()},{base.getDescription()},{base.GetTotalPoints()},{this._isCompleted}";
     }
 
     public override bool IsComplete()

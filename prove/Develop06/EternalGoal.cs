@@ -23,7 +23,7 @@ public class EternalGoal:Goal
 
     public override string getStringRepresentation()
     {
-        return $"Eternal Goal:{base.GetName()},{base.getDescription()},{base.GetTotalPoints()}";
+        return $"EternalGoal:{base.GetName()},{base.getDescription()},{base.GetTotalPoints()}";
     }
     public override int GetTotalPoints()
     {

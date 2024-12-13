@@ -16,4 +16,14 @@ public class FileManager
             }   
         }
     }
+    public List<string> LoadFromFile(string fileName)
+    {
+        List<string> l = new List<string>();
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+        foreach (string line in lines)
+        {
+            l.Add(line);
+        }
+        return l;
+    }
 }
