@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 public abstract class Activity
 {
     private string _date;
-    private int _minutes;
+    private double _minutes;
     public Activity(string date, int minutes){
         this._date = date;
         this._minutes = minutes;
@@ -14,7 +14,7 @@ public abstract class Activity
         return this._date;
     }
 
-    protected int GetLenghtInMinutes()
+    protected double GetLenghtInMinutes()
     {
         return this._minutes;
     }
@@ -23,8 +23,9 @@ public abstract class Activity
     public abstract double GetSpeed();
     public abstract double GetPace();
 
+
     public virtual void GetSummary(string activityType)
     {
-        Console.WriteLine($"{this.GetDate()} {activityType} ({this.GetLenghtInMinutes()})- Distance {this.GetDistance()} km, speed: {this.GetSpeed()} kph, Pace: {this.GetPace()}");
+        Console.WriteLine($"{this.GetDate()} {activityType} ({this.GetLenghtInMinutes().ToString("F2")})- Distance {this.GetDistance().ToString("F2")} km, speed: {this.GetSpeed().ToString("F2")} kph, Pace: {this.GetPace().ToString("F2")} min per km");
     }
 }

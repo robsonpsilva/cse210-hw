@@ -1,7 +1,7 @@
 
 public class SwimmingActivity:Activity
 {
-    private int _laps;
+    private double _laps;
     public SwimmingActivity(string date, int minutes, int laps): base(date,minutes)
     {
         this._laps = laps;
