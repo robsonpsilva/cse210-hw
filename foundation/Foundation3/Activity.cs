@@ -4,10 +4,10 @@ using System.Runtime.CompilerServices;
 public abstract class Activity
 {
     private string _date;
-    private double _minutes;
-    public Activity(string date, int minutes){
+    private double _lenght;
+    public Activity(string date, int lenght){
         this._date = date;
-        this._minutes = minutes;
+        this._lenght = lenght;
     }
     protected string GetDate()
     {
@@ -16,7 +16,7 @@ public abstract class Activity
 
     protected double GetLenghtInMinutes()
     {
-        return this._minutes;
+        return this._lenght;
     }
 
     public abstract double GetDistance();
