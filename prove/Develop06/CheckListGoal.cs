@@ -30,29 +30,29 @@ public class CheckListGoal:Goal
         string message = "";
         if (!this.IsComplete())
         {
-            message = $"[ ] {base.getDetailsString()} -- Currently completed: {this._valueCompleted}/{this._target}";
+            message = $"[ ] {base.getDetailsString()} - Currently completed: {this._valueCompleted}/{this._target}";
         }
         else
         {
-            message = $"[x] {base.getDetailsString()} -- Currently completed: {this._valueCompleted}/{this._target}";
+            message = $"[x] {base.getDetailsString()} - Currently completed: {this._valueCompleted}/{this._target}";
         }
 
         return message;
     }
-    public override string getStringRepresantation()
+    public override string getStringRepresentation()
     {
-        return $"CheckList Goal:{this.getDetailsString()}, {base.GetPoints()}, {this._bonus}, {this._target}, {this._valueCompleted}";
+        return $"CheckListGoal:{base.GetName()}~|~{base.getDescription()}~|~{base.GetTotalPoints()}~|~{this._valueCompleted}~|~{this._target}~|~{this._bonus}";
     }
-    public int GetTotalPoints()
+    public override int GetTotalPoints()
     {
         int total = 0;
         if (this.IsComplete())
         {
-            total = this._valueCompleted * base.GetPoints() + this._bonus;
+            total = this._valueCompleted * base.GetTotalPoints() + this._bonus;
         }
         else
         {
-            total = this._valueCompleted * base.GetPoints();
+            total = this._valueCompleted * base.GetTotalPoints();
         }
         return total;
     }

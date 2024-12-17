@@ -21,22 +21,22 @@ public class SimpleGoal:Goal
         }
         return message;
     }
-    public override string getStringRepresantation()
+    public override string getStringRepresentation()
     {
-        return $"Simple Goal:{this.getDetailsString()}, {base.GetPoints()}";
+        return $"SimpleGoal:{base.GetName()}~|~{base.getDescription()}~|~{base.GetTotalPoints()}~|~{this._isCompleted}";
     }
 
     public override bool IsComplete()
     {
         return this._isCompleted;
     }
-    public int GetTotalPoints()
+    public override int GetTotalPoints()
     {
         int total = 0;
         
         if (this.IsComplete())
         {
-            total = base.GetPoints();
+            total = base.GetTotalPoints();
         }
 
         return total;

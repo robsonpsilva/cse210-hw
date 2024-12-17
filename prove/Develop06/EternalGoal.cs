@@ -1,7 +1,7 @@
 
 public class EternalGoal:Goal
 {
-
+    int _innerTotalPoints = 0;
     public EternalGoal(string name, string description, int points):base(name, description, points)
     {
 
@@ -9,7 +9,7 @@ public class EternalGoal:Goal
 
     public override void RecordEvent()
     {
-        
+        this._innerTotalPoints += base.GetTotalPoints();
     }
 
     public override bool IsComplete()
@@ -21,13 +21,13 @@ public class EternalGoal:Goal
         return $"[ ] {base.getDetailsString()}";
     }
 
-    public override string getStringRepresantation()
+    public override string getStringRepresentation()
     {
-        return $"Eternal Goal:{this.getDetailsString()}, {base.GetPoints()}";
+        return $"EternalGoal:{base.GetName()}~|~{base.getDescription()}~|~{this._innerTotalPoints}";
     }
-    public int GetTotalPoints()
+    public override int GetTotalPoints()
     {
-        return base.GetPoints();
+        return this._innerTotalPoints;
     }
 
 }
